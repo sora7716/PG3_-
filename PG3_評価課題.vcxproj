@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -108,6 +108,15 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="asset\GameManager.cpp" />
+    <ClCompile Include="asset\gameObject\bullet\Bullet.cpp" />
+    <ClCompile Include="asset\gameObject\Command.cpp" />
+    <ClCompile Include="asset\gameObject\InputHandle.cpp" />
+    <ClCompile Include="asset\gameObject\player\Player.cpp" />
+    <ClCompile Include="asset\scene\end\End.cpp" />
+    <ClCompile Include="asset\scene\IScene.cpp" />
+    <ClCompile Include="asset\scene\stage\Stage.cpp" />
+    <ClCompile Include="asset\scene\title\Title.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\StringUtility.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp" />
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\WinApp.cpp" />
@@ -118,6 +127,15 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="asset\GameManager.h" />
+    <ClInclude Include="asset\gameObject\bullet\Bullet.h" />
+    <ClInclude Include="asset\gameObject\Command.h" />
+    <ClInclude Include="asset\gameObject\InputHandle.h" />
+    <ClInclude Include="asset\gameObject\player\Player.h" />
+    <ClInclude Include="asset\scene\end\End.h" />
+    <ClInclude Include="asset\scene\IScene.h" />
+    <ClInclude Include="asset\scene\stage\Stage.h" />
+    <ClInclude Include="asset\scene\title\Title.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Matrix4x4.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\math\Vector2.h" />

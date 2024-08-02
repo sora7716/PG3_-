@@ -14,6 +14,27 @@
     <Filter Include="KamataEngine\Adapter">
       <UniqueIdentifier>{c6468eb4-788b-4a83-b207-a5f4804e56c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="asset">
+      <UniqueIdentifier>{5d723d15-888b-4252-8840-da802b028b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asset\cppファイル">
+      <UniqueIdentifier>{ac9e28f5-bd36-4fb4-83f1-671e0e81a740}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asset\ヘッダーファイル">
+      <UniqueIdentifier>{83452edc-9c50-4fe1-b6bb-5fcf7fb525b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asset\cppファイル\scene">
+      <UniqueIdentifier>{55b4c22e-a0eb-432e-bed4-f1db9a06a27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asset\ヘッダーファイル\scene">
+      <UniqueIdentifier>{f9c02288-d8c8-4cee-a520-efb0e1ee1140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asset\cppファイル\gameObject">
+      <UniqueIdentifier>{3080942d-b5b2-412a-8290-fbfffff882e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="asset\ヘッダーファイル\gameObject">
+      <UniqueIdentifier>{ea9de141-6095-4257-af2e-94dda8c17a10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\DirectXCommon.cpp">
@@ -37,6 +58,33 @@
     </ClCompile>
     <ClCompile Include="C:\KamataEngine\DirectXGame\base\StringUtility.cpp">
       <Filter>KamataEngine\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\scene\IScene.cpp">
+      <Filter>asset\cppファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\GameManager.cpp">
+      <Filter>asset\cppファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\scene\title\Title.cpp">
+      <Filter>asset\cppファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\scene\stage\Stage.cpp">
+      <Filter>asset\cppファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\scene\end\End.cpp">
+      <Filter>asset\cppファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\gameObject\player\Player.cpp">
+      <Filter>asset\cppファイル\gameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\gameObject\Command.cpp">
+      <Filter>asset\cppファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\gameObject\InputHandle.cpp">
+      <Filter>asset\cppファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="asset\gameObject\bullet\Bullet.cpp">
+      <Filter>asset\cppファイル\gameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +158,33 @@
     <ClInclude Include="C:\KamataEngine\DirectXGame\2d\ImGuiManager.h" />
     <ClInclude Include="C:\KamataEngine\DirectXGame\base\StringUtility.h">
       <Filter>KamataEngine\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\scene\IScene.h">
+      <Filter>asset\ヘッダーファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\GameManager.h">
+      <Filter>asset\ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\scene\title\Title.h">
+      <Filter>asset\ヘッダーファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\scene\stage\Stage.h">
+      <Filter>asset\ヘッダーファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\scene\end\End.h">
+      <Filter>asset\ヘッダーファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\gameObject\player\Player.h">
+      <Filter>asset\ヘッダーファイル\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\gameObject\Command.h">
+      <Filter>asset\ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\gameObject\InputHandle.h">
+      <Filter>asset\ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="asset\gameObject\bullet\Bullet.h">
+      <Filter>asset\ヘッダーファイル\gameObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
