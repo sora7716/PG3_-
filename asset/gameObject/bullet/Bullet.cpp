@@ -15,7 +15,7 @@ void Bullet::Initialize(Vector2 position){
 	bullet_.position = position;
 	bullet_.velocity = {};
 	bullet_.radius = 10;
-	bullet_.color = RED;
+	bullet_.color = 0xFF0000AA;
 }
 
 //更新

@@ -26,7 +26,7 @@ void End::Update(const char* keys, const char* preKeys, int& scene) {
 //描画
 void End::Draw() {
 	//シーンについて
-	IScene::ScreenPrintScene("END", "TITLE");
+	IScene::SceneNameAndBackground("END", "TITLE", 0x00FF0099);
 	//フェードアウト
 	IScene::DrawFadeOut();
 }

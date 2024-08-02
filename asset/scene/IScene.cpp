@@ -23,7 +23,7 @@ void IScene::SceneChangeTimeOut(int second, int scene) {
 			nextScene = END;
 		}
 		return nextScene;
-		}();
+	}();
 	FadeOut(second, p_nextSceneNo_, nextScene);
 }
 
@@ -62,12 +62,15 @@ void IScene::DrawFadeOut() {
 }
 
 //シーンについて
-void IScene::ScreenPrintScene(const char* sceneName, const char* nextSceneName) {
+void IScene::SceneNameAndBackground(const char* sceneName, const char* nextSceneName,uint32_t backgroundColor) {
 	//シーン名
 	Novice::ScreenPrintf(0, 0, sceneName);
 	//シーンの切り替え
 	string nextScene = "Press Enter ChangeScene " + string(nextSceneName);
 	Novice::ScreenPrintf(0, 20, nextScene.c_str());
+
+	//背景
+	Novice::DrawBox(0,0,(int)GameManager::kWindowWidth,(int)GameManager::kWindowHeight,0.0f,backgroundColor,kFillModeSolid);
 }
 
 //シーンを変更

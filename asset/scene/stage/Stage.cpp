@@ -72,7 +72,7 @@ void Stage::Update(const char* keys, const char* preKeys, int& scene) {
 //描画
 void Stage::Draw() {
 	//シーンについて
-	IScene::ScreenPrintScene("STAGE", "END");
+	IScene::SceneNameAndBackground("STAGE", "END", 0x0000FFAA);
 	//操作方法
 	Novice::ScreenPrintf(0, 40, "Press MouseLeftBottom [shot]");//プレイヤーの攻撃
 	Novice::ScreenPrintf(0, 60, "Press W [up]:Press S [down]:Press D [right]:Press A [left]");//プレイヤーの移動

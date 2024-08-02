@@ -14,7 +14,7 @@ void Player::Initialize() {
 	player_.position = {GameManager::kWindowWidth/2.0f,GameManager::kWindowHeight/2.0f};
 	player_.radius = 30.0f;
 	player_.velocity = {5.0f,5.0f};
-	player_.color = WHITE;
+	player_.color = 0xFFFFFFAA;
 }
 
 //更新

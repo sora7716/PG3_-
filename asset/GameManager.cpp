@@ -67,6 +67,7 @@ void GameManager::SceneCreate(){
 	//シーンチェック
 	SceneCheck();
 
+	//前のシーンと今のシーンが違った場合今のシーンを生成する
 	if (prevSceneNo_ != currentSceneNo_) {
 		sceneArr_[currentSceneNo_]->SetFadeColor(0x00000000);//フェードに使ったボックスの色を透明にセット
 		sceneArr_[currentSceneNo_]->SetIsFadeOutStart(false);//フェードアウトを行うかのフラグをfalseにセット

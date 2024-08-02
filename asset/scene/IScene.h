@@ -1,5 +1,7 @@
 #pragma once
 #include <Novice.h>
+#include <cmath>
+#define _USE_MATH_DEFINES
 
 //シーン名を列挙型で定義
 enum SCENE {
@@ -24,7 +26,7 @@ class IScene {
 
 public://静的メンバ変数
 
-	static inline const int kSceneNum = sceneNum;
+	static inline const int kSceneNum = sceneNum;//シーンの数
 
 	static inline P_SceneChange p_nextSceneNo_;//次のシーンの関数ポインタ
 
@@ -102,6 +104,6 @@ protected://メンバ関数
 	/// シーンについて
 	/// </summary>
 	/// <param name="sceneName"></param>
-	void ScreenPrintScene(const char* sceneName, const char* nextSceneName);
+	void SceneNameAndBackground(const char* sceneName, const char* nextSceneName,uint32_t backgroundColor);
 };
 
