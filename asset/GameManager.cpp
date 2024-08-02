@@ -6,9 +6,9 @@ GameManager::GameManager() {
 	// ライブラリの初期化
 	Novice::Initialize(kWindowTitle, (int)kWindowWidth, (int)kWindowHeight);
 	//初期シーンの初期化
-	currentSceneNo_ = TITLE;
-	prevSceneNo_ = sceneNum;
-	IScene::p_nextSceneNo_ = SceneChange;
+	currentSceneNo_ = TITLE;//現在のシーン
+	prevSceneNo_ = SCENE_NULL;//過去のシーン
+	IScene::p_nextSceneNo_ = SceneChange;//次のシーンの検出する関数ポインタ
 }
 
 //デストラクタ
@@ -28,9 +28,9 @@ int GameManager::Run() {
 
 		//シーンの生成と初期化
 		SceneCreate();
-		
+
 		//更新処理
-		sceneArr_[currentSceneNo_]->Update(keys, preKeys,tempSceneNo_);
+		sceneArr_[currentSceneNo_]->Update(keys, preKeys, tempSceneNo_);
 
 		//描画
 		sceneArr_[currentSceneNo_]->Draw();
@@ -50,20 +50,18 @@ int GameManager::Run() {
 }
 
 //シーンチェック
-void GameManager::SceneCheck(){
+void GameManager::SceneCheck() {
 	currentSceneNo_ = sceneArr_[currentSceneNo_]->GetSceneNo();
 }
 
 //シーン変更チェック
-void GameManager::SceneChangeCheck(){
-	if (prevSceneNo_ != currentSceneNo_) {
-		sceneArr_[currentSceneNo_]->Initialise();
-		prevSceneNo_ = currentSceneNo_;
-	}
+void GameManager::SceneChangeCheck() {
+	sceneArr_[currentSceneNo_]->Initialise();
+	prevSceneNo_ = currentSceneNo_;
 }
 
 //シーンの生成
-void GameManager::SceneCreate(){
+void GameManager::SceneCreate() {
 	//シーンチェック
 	SceneCheck();
 
@@ -89,14 +87,14 @@ void GameManager::SceneCreate(){
 			sceneArr_[STAGE] = nullptr;//ステージシーンを空にする
 			break;
 		}
-	}
 
-	//シーン変更チェック
-	SceneChangeCheck();
+		//シーン変更チェック
+		SceneChangeCheck();
+	}
 }
 
 //シーンを切り替えるときのコールバック関数
-void GameManager::SceneChangeTimeOut(){
+void GameManager::SceneChangeTimeOut() {
 	if (prevSceneNo_ != tempSceneNo_) {
 		int second = 3;
 		IScene::SceneChangeTimeOut(second, tempSceneNo_);

@@ -8,7 +8,8 @@ enum SCENE {
 	TITLE,//タイトル
 	STAGE,//ステージ
 	END,//エンド
-	sceneNum,//シーン無し
+	SCENE_NUM,//シーンの数
+	SCENE_NULL,//シーンなし
 };
 
 /// <summary>
@@ -26,7 +27,7 @@ class IScene {
 
 public://静的メンバ変数
 
-	static inline const int kSceneNum = sceneNum;//シーンの数
+	static inline const int kSceneNum = SCENE_NUM;//シーンの数
 
 	static inline P_SceneChange p_nextSceneNo_;//次のシーンの関数ポインタ
 
