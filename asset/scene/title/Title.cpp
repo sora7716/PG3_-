@@ -14,19 +14,13 @@ void Title::Initialise() {
 }
 
 //更新
-void Title::Update(const char* keys, const char* preKeys) {
-
-	
-
-	int second = 2;//何秒待ってほしいか
+void Title::Update(const char* keys, const char* preKeys, int& scene) {
 	
 	//エンターを押したらフェードアウトスタート
 	if (keys[DIK_RETURN] && !preKeys[DIK_RETURN]) {
 		isFadeOutStart_ = true;
-		p_nextSceneNo_ = SceneChange;
+		scene = STAGE;
 	}
-	//フェードアウトとシーン切り替え
-	IScene::FadeOut(second, p_nextSceneNo_,STAGE);
 }
 
 //描画

@@ -1,10 +1,5 @@
 #include "Stage.h"
 
-
-#ifdef _DEBUG
-#include "imgui.h"
-#endif // _DEBUG
-
 //コンストラクタ
 Stage::Stage() {
 }
@@ -40,7 +35,7 @@ void Stage::Initialise() {
 }
 
 //更新
-void Stage::Update(const char* keys, const char* preKeys) {
+void Stage::Update(const char* keys, const char* preKeys, int& scene) {
 	//get input
 	iPlayerCommand_ = inputHandle_->PlayerMoveInput();//移動
 	iBulletCommand_ = inputHandle_->BulletShotInput();//攻撃
@@ -59,21 +54,10 @@ void Stage::Update(const char* keys, const char* preKeys) {
 		}
 	}
 
-
-#ifdef _DEBUG
-	for (Bullet* bullet : bullets_) {
-		ImGui::Text("bullet.isAlive:%d", bullet->GetIsAlive());
-	}
-#endif // _DEBUG
-
-
-	int second = 3;//どれくらいの時間待つか
 	if (keys[DIK_RETURN] && !preKeys[DIK_RETURN]) {
-		isFadeOutStart_ = true;//フェードアウトをスタート
-		p_nextSceneNo_ = SceneChange;
+		isFadeOutStart_ = true;//フェードアウトをスタート]
+		scene = END;
 	}
-	//フェードアウト
-	IScene::FadeOut(second, p_nextSceneNo_,END);
 
 	//プレイヤーの更新
 	player_->Update();

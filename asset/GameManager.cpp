@@ -8,6 +8,7 @@ GameManager::GameManager() {
 	//初期シーンの初期化
 	currentSceneNo_ = TITLE;
 	prevSceneNo_ = sceneNum;
+	IScene::p_nextSceneNo_ = SceneChange;
 }
 
 //デストラクタ
@@ -27,12 +28,15 @@ int GameManager::Run() {
 
 		//シーンの生成と初期化
 		SceneCreate();
-	
+		
 		//更新処理
-		sceneArr_[currentSceneNo_]->Update(keys, preKeys);
+		sceneArr_[currentSceneNo_]->Update(keys, preKeys,tempSceneNo_);
 
 		//描画
 		sceneArr_[currentSceneNo_]->Draw();
+
+		//シーンを切り替える
+		SceneChangeTimeOut();
 
 		// フレームの終了
 		Novice::EndFrame();
@@ -64,25 +68,38 @@ void GameManager::SceneCreate(){
 	SceneCheck();
 
 	if (prevSceneNo_ != currentSceneNo_) {
+		sceneArr_[currentSceneNo_]->SetFadeColor(0x00000000);//フェードに使ったボックスの色を透明にセット
+		sceneArr_[currentSceneNo_]->SetIsFadeOutStart(false);//フェードアウトを行うかのフラグをfalseにセット
 		//各シーンの配列
 		switch (currentSceneNo_) {
 		case TITLE:
-			sceneArr_[TITLE] = make_unique<Title>();
-			sceneArr_[END] = nullptr;
+			tempSceneNo_ = TITLE;//仮のシーンにTITLEを代入
+			sceneArr_[TITLE] = make_unique<Title>();//タイトルシーンの生成
+			sceneArr_[END] = nullptr;//エンドシーンを空にする
 			break;
 		case STAGE:
-			sceneArr_[STAGE] = make_unique<Stage>();
-			sceneArr_[TITLE] = nullptr;
+			tempSceneNo_ = STAGE;//仮のシーンにSTAGEを代入
+			sceneArr_[STAGE] = make_unique<Stage>();//ステージシーンの生成
+			sceneArr_[TITLE] = nullptr;//タイトルシーンを空にする
 			break;
 		case END:
-			sceneArr_[END] = make_unique<End>();
-			sceneArr_[STAGE] = nullptr;
+			tempSceneNo_ = END;//仮のシーンにENDを代入
+			sceneArr_[END] = make_unique<End>();//エンドシーンの生成
+			sceneArr_[STAGE] = nullptr;//ステージシーンを空にする
 			break;
 		}
 	}
 
 	//シーン変更チェック
 	SceneChangeCheck();
+}
+
+//シーンを切り替えるときのコールバック関数
+void GameManager::SceneChangeTimeOut(){
+	if (prevSceneNo_ != tempSceneNo_) {
+		int second = 3;
+		IScene::SceneChangeTimeOut(second, tempSceneNo_);
+	}
 }
 
 

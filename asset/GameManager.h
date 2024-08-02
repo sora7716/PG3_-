@@ -28,6 +28,8 @@ private://メンバ変数
 	char keys[kKeyNum] = { 0 };
 	char preKeys[kKeyNum] = { 0 };
 
+	int tempSceneNo_ = TITLE;
+
 public://メンバ関数
 
 	/// <summary>
@@ -62,5 +64,10 @@ private://メンバ関数
 	/// シーンの生成
 	/// </summary>
 	void SceneCreate();
+
+	/// <summary>
+	/// シーンを切り替えるときのコールバック関数
+	/// </summary>
+	void SceneChangeTimeOut();
 };
 

@@ -28,7 +28,7 @@ public://メンバ関数
 	/// <summary>
 	/// 更新
 	/// </summary>
-	void Update(const char* keys, const char* preKeys)override;
+	void Update(const char* keys, const char* preKeys, int& scene)override;
 
 	/// <summary>
 	/// 描画
