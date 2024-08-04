@@ -46,6 +46,9 @@ public://メンバ関数
 	void Exec(Player& player)override;
 };
 
+/// <summary>
+/// 左に動くコマンド
+/// </summary>
 class MoveLeftCommand :public IPlayerCommand {
 public://メンバ関数
 
@@ -66,6 +69,9 @@ public://メンバ関数
 	void Exec(Player& player)override;
 };
 
+/// <summary>
+/// 上に動くコマンド
+/// </summary>
 class MoveUpCommand :public IPlayerCommand {
 public://メンバ関数
 
@@ -86,6 +92,9 @@ public://メンバ関数
 	void Exec(Player& player)override;
 };
 
+/// <summary>
+/// 下に動くコマンド
+/// </summary>
 class MoveDownCommand :public IPlayerCommand {
 public://メンバ関数
 	/// <summary>
@@ -105,6 +114,9 @@ public://メンバ関数
 	void Exec(Player& player);
 };
 
+/// <summary>
+/// 球を発射するコマンド
+/// </summary>
 class ShotUpCommand :public IBulletCommand {
 public://メンバ関数
 	/// <summary>

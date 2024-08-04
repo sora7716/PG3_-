@@ -38,17 +38,18 @@ void Stage::Initialise() {
 void Stage::Update(const char* keys, const char* preKeys, int& scene) {
 	//get input
 	iPlayerCommand_ = inputHandle_->PlayerMoveInput();//移動
-	iBulletCommand_ = inputHandle_->BulletShotInput();//攻撃
 	//移動
 	if (iPlayerCommand_) {
 		iPlayerCommand_->Exec(*player_);
 	}
 
+	//get input
+	iBulletCommand_ = inputHandle_->BulletShotInput();//攻撃
 	//攻撃
-	for (int i = 0; i < kBulletNum; i++) {
+	for (auto bullet: bullets_) {
 		if (iBulletCommand_) {
-			if (!bullets_[i]->GetIsAlive()) {
-				iBulletCommand_->Exec(*bullets_[i]);
+			if (!bullet->GetIsAlive()) {
+				iBulletCommand_->Exec(*bullet);
 				break;
 			}
 		}
@@ -63,9 +64,9 @@ void Stage::Update(const char* keys, const char* preKeys, int& scene) {
 	player_->Update();
 
 	//弾の更新
-	for (int i = 0; i < kBulletNum; i++) {
-		bullets_[i]->Update();
-		bullets_[i]->Destroy(player_->GetPosition());
+	for (auto bullet:bullets_) {
+		bullet->Update();
+		bullet->Destroy(player_->GetPosition());
 	}
 }
 

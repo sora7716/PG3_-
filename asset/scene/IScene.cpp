@@ -11,7 +11,8 @@ int IScene::GetSceneNo() { return sceneNo_; }
 
 // シーン切り替え
 void IScene::SceneChangeTimeOut(int second, int scene) {
-	int nextScene = TITLE;
+	int nextScene = TITLE;//次のシーンを宣言
+	//ラムダ式で次のシーンを算出
 	[scene, &nextScene]() {
 		if (scene == TITLE) {
 			nextScene = TITLE;
@@ -24,6 +25,7 @@ void IScene::SceneChangeTimeOut(int second, int scene) {
 		}
 		return nextScene;
 	}();
+	//フェードアウトを実行
 	FadeOut(second, p_nextSceneNo_, nextScene);
 }
 
